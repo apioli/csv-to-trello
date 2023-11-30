@@ -38,12 +38,12 @@ with open('sample.csv') as csv_file:
 
         # add card
         card = None
-        if status == "To Do":
-            card = todo_list.add_card(name=name, desc=description)
+        if status == "Done":
+            card = done_list.add_card(name=name, desc=description)
         elif status == "In Progress":
             card = doing_list.add_card(name=name, desc=description)
-        elif status == "Done":
-            card = done_list.add_card(name=name, desc=description)
+        elif status == "To Do":
+            card = todo_list.add_card(name=name, desc=description)
         else:
             card = todo_list.add_card(name="Deleted issue")
             continue
@@ -51,6 +51,6 @@ with open('sample.csv') as csv_file:
         # Add labels indicating issue type
         card.add_label(get_label(board_labels, issue_type))
 
-        print("Added card: " + name + " to " + status)
+        print(f"Added card: {name} to {status}")
 
 
